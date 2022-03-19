@@ -8,12 +8,12 @@ import { ItemRepository } from './item.repository';
 export class ItemsService {
   constructor(private readonly itemRepository: ItemRepository) {}
   private items: Item[] = [];
-  findAll(): Item[] {
-    return this.items;
+  async findAll(): Promise<Item[]> {
+    return await this.itemRepository.find();
   }
 
-  findById(id: string): Item {
-    const found = this.items.find((item) => item.id === id);
+  async findById(id: string): Promise<Item> {
+    const found = await this.itemRepository.findOne(id);
     if (!found) {
       throw new NotFoundException();
     }
@@ -24,13 +24,15 @@ export class ItemsService {
     return await this.itemRepository.createItem(createItemDto);
   }
 
-  // updateSatus(id: string): Item {
-  //   const item = this.findById(id);
-  //   item.status = ItemStatus.SOLD_OUT;
-  //   return item;
+  async updateSatus(id: string): Promise<Item> {
+    const item = await this.itemRepository.findOne(id);
+    item.status = ItemStatus.SOLD_OUT;
+    item.updatedAt = new Date().toISOString();
+    await this.itemRepository.save(item);
+    return item;
   }
 
-  delete(id: string): void {
-    this.items = this.items.filter((item) => item.id !== id);
+  async delete(id: string): Promise<void> {
+    await this.itemRepository.delete({ id });
   }
 }
