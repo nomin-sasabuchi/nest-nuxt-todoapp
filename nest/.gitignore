@@ -1,0 +1,8 @@
+./tmp/
+./temp/
+.idea/
+.vscode/
+node_modules/
+docker/
+dist/
+build/
