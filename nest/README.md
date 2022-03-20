@@ -1,73 +1,75 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# nest-js 基礎
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 基本用語
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+_ORM_
+オブジェクト指向の言語と RDB の非互換なデータをマッピングする役割
 
-## Description
+_オブジェクト指向_
+現実世界の物事に即したデータモデル
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+_RDB_
 
-## Installation
+_マッピング_
+ある情報に関して「位置付けを割り当てること」や「対応付けること」などという意味
 
-```bash
-$ npm install
-```
+_デコレーター_
+クラスの宣言などに結び付けられる特別な宣言の 1 つ。
+既存のクラスやメソッドにデコレーションする（=追加機能を入れる）イメージ
 
-## Running the app
+_リレーション_
 
-```bash
-# development
-$ npm run start
+_E-R 図_
+「どんな物があるか」と「物同士に、どんな関連性があるか」を何となく表現した図であり、箱と線で関係性を表現した図
 
-# watch mode
-$ npm run start:dev
+_Entity_
 
-# production mode
-$ npm run start:prod
-```
+- 実体のこと（E-R 図で出てくる箱のこと）
+- RDB のデーブルと対応するオブジェクト
+- @Entity デコレーターをつけたクラスとして定義する
+- @PrimaryGeneratedColumn や@Column がついたプロパティが RDB の Column としてマップングされる
 
-## Test
+_DI：Dependency Injection_
+ソフトウェア開発において内部のソフトウェア部品（コンポーネント）間の依存性の管理を行うことができるようにするソフトウェア。依存性注入（DI：Dependency Injection）を実現することができる。
+[https://qiita.com/hshimo/items/1136087e1c6e5c5b0d9f]
 
-```bash
-# unit tests
-$ npm run test
+_DTO:Data Transfer Object_
+DTO とは、オブジェクト指向プログラミングでよく用いられる典型的なオブジェクトの設計パターン（デザインパターン）の一つで、関連するデータを一つにまとめ、データの格納・読み出しのためのメソッドを定義したオブジェクトのこと。異なるプログラム間やコンピュータ間でひとまとまりのデータを受け渡す際に用いられる。
 
-# e2e tests
-$ npm run test:e2e
+_Repository_
 
-# test coverage
-$ npm run test:cov
-```
+- Entity を管理するためのオブジェクト
+- Entity と Repository が 1 対 1 となり、データベースを抽象化する
+- クラスに@EntityRepository()デコレーターをつけて、Repository を継承する
 
-## Support
+_JWT:JSON WEB TOKEN_
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- JSON の形をした認証情報
+- 電子署名により改ざんの検知が可能
+- 認証用のトークンとして使用される
 
-## Stay in touch
+JWT 構成要素 3 つ
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- ヘッダ:ハッシュアルゴリズムなど meta データ
+- ペイロード:認証対象の情報で、ユーザー名や ID などの任意の情報
+- 署名:ヘッダとペイロードをエンコードしたものに秘密鍵を加えてハッシュ化したもの
 
-## License
+_セキュア_
+一般的に「安全である」「危険がない」といった意味
 
-Nest is [MIT licensed](LICENSE).
+_base64_
+データを他の形式へ変換するやり方（エンコード方式）のひとつでありメールの添付ファイルを変換するときに、よく使われるエンコード方式
+すべてのデータを「a ～ z」「A ～ Z」「0 ～ 9」「+」「/」の 64 文字と「=」の組み合わせに変換するやり方
+
+_エンコード_
+データを他の形式へ変換すること
+データを何らかの規則に基づいて他の形に変身させる行為
+
+_パース_
+一定の書式や文法に従って記述されたデータを解析し、プログラムで扱えるようなデータ構造の集合体に変換すること
+
+_ハッシュ化_
+元の値を「ハッシュ関数」と呼ばれる「値を中に放り込むと適当な値（適当に見える値）を返してくれる関数」に入れて「ハッシュ値」と呼ばれる「適当な値（適当に見える値）」に変換すること
+
+_ハッシュ値_
+ハッシュ関数から返される値であり元のデータをあれやこれやして作られた一見すると適当に見える値
