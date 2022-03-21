@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ItemsService } from './items.service';
-import { Item } from './item.model';
+import { Item } from './types';
 import { CreateItemDto } from './dto/createItem.dto';
 import { JwtAuthGuard } from 'auth/guards/jwtAuth.guard';
 

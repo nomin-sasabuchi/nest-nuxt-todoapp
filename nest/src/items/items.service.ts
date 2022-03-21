@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Item } from '../entities/item.entity';
-import { ItemStatus } from './itemStatus.enum';
+import { ItemStatus } from './types';
 import { CreateItemDto } from './dto/createItem.dto';
 import { ItemRepository } from './item.repository';
 

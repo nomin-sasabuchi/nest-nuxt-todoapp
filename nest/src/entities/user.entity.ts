@@ -1,4 +1,4 @@
-import { UserStatus } from '../auth/userStatus.enum';
+import { UserStatus } from 'auth/types';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

@@ -10,11 +10,16 @@ import { JwtAuthGuard } from './guards/jwtAuth.guard';
 
 @Module({
   imports: [
+    //このモジュール内のみ使用
     TypeOrmModule.forFeature([UserRepository]),
+    //デフォルトの認証方法をJWTにしている
     PassportModule.register({ defaultStrategy: 'jwt' }),
+    //JWTの設定
     JwtModule.register({
+      //JWTの秘密鍵
       secret: 'secretKey123',
       signOptions: {
+        //JWTの有効期限
         expiresIn: 3600,
       },
     }),

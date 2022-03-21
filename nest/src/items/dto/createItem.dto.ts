@@ -2,6 +2,10 @@ import { Type } from 'class-transformer';
 
 import { IsString, IsNotEmpty, MaxLength, IsInt, Min } from 'class-validator';
 
+/**
+ * dto = データの受け渡しに使われるオブジェクト
+ *
+ */
 export class CreateItemDto {
   @IsString()
   @IsNotEmpty()

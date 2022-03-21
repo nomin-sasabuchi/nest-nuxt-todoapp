@@ -1,8 +1,12 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { Item } from '../entities/item.entity';
 import { CreateItemDto } from './dto/createItem.dto';
-import { ItemStatus } from './itemStatus.enum';
+import { ItemStatus } from './types';
 
+//Repository = EntityとDBの仲介役となるオブジェクト
+//Repositoryを経由しデータベースを保存したり、データベースを取得したりする
+//@EntityRepository(エンティティ名)　= nestjsがRepositoryであると認識する
+//extends Repository<エンティティのクラス名> = データベースとのやりとりに必要な各種メソッドが使用可能になる
 @EntityRepository(Item)
 export class ItemRepository extends Repository<Item> {
   async createItem(createItemDto: CreateItemDto): Promise<Item> {

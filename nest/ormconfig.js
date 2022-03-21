@@ -10,6 +10,7 @@ module.exports = {
   entities: ['dist/entities/*.entity.js'],
   //どのマイグレーションファイルを使用してマイグレーションするかの設定
   migrations: ['dist/migrations/*.js'],
+  //CLIによってファイルが作成される際の出力先
   cli: {
     entitiesDir: 'src/entities',
     migrationsDir: 'src/migrations',

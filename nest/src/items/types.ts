@@ -1,5 +1,3 @@
-import { ItemStatus } from './itemStatus.enum';
-
 export type Item = {
   id: string;
   name: string;
@@ -7,3 +5,8 @@ export type Item = {
   description: string;
   status: ItemStatus;
 };
+
+export enum ItemStatus {
+  ON_SALE = 'ON_SALE',
+  SOLD_OUT = 'SOLD_OUT',
+}

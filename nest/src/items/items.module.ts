@@ -4,6 +4,9 @@ import { ItemRepository } from './item.repository';
 import { ItemsController } from './items.controller';
 import { ItemsService } from './items.service';
 import { AuthModule } from 'auth/auth.module';
+
+//imports = モジュール内部で必要な外部モジュールを記述
+//TypeOrmModule.forFeature
 @Module({
   imports: [TypeOrmModule.forFeature([ItemRepository]), AuthModule],
   controllers: [ItemsController],
