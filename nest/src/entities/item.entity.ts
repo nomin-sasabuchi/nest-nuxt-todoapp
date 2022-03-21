@@ -1,5 +1,6 @@
 import { ItemStatus } from 'items/types';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'entities/user.entity';
 
 //データベーステーブル（またはMongoDBを使用する場合はコレクション）にマップするクラス
 //データの定義ファイル　= Entity
@@ -28,4 +29,13 @@ export class Item {
 
   @Column()
   updatedAt: string;
+
+  /**
+   * リレーション
+   */
+  @ManyToOne(() => User, (user) => user.items)
+  user: User;
+
+  @Column()
+  userId: string;
 }
