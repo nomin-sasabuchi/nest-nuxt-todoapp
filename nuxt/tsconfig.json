@@ -25,7 +25,8 @@
     },
     "types": [
       "@nuxt/types",
-      "@types/node"
+      "@types/node",
+      "jest" // typesにjestを追加
     ]
   },
   "exclude": [

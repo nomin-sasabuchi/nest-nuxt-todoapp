@@ -1,0 +1,21 @@
+@import './tools/_.css';
+@import './generic/_.css';
+@import './tailwind/_.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.test{
+  color:red;
+}
+html {
+  font-size: resolve((10/375 * 100) * 1vw);
+  scroll-behavior: smooth;
+
+  @mixin media-pc {
+    font-size: resolve((10/1366 * 100) * 1vw);
+  }
+
+  @mixin media-min 1366px {
+    font-size: 62.5%;
+  }
+}

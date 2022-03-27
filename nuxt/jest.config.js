@@ -15,10 +15,8 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
-  collectCoverage: true,
-  collectCoverageFrom: [
-    '<rootDir>/components/**/*.vue',
-    '<rootDir>/pages/**/*.vue'
-  ],
-  testEnvironment: 'jsdom'
+  // Jestがテストファイルを検出するために使用するグロブパターン
+  testMatch: ['<rootDir>/**/*.test.ts?(x)'],
+  // テストする環境のこと
+  testEnvironment: 'jest-environment-jsdom',
 }
