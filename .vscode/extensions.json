@@ -1,0 +1,29 @@
+//拡張機能を共有
+{
+  "recommendations": [
+    //eslint
+    "dbaeumer.vscode-eslint",
+    //tailwindのクラスの並べ替えの拡張
+    "heybourn.headwind",
+    //Tailwindのオートコンプリート、構文の強調表示、リンティングなどの拡張
+    "bradlc.vscode-tailwindcss",
+    //jestのスニペット
+    "andys8.jest-snippets",
+    //autoimport
+    "nucllear.vscode-extension-auto-import",
+    //スペルチェックの拡張
+    "streetsidesoftware.code-spell-checker",
+    //ES6のスニペット
+    "xabikos.javascriptsnippets",
+    //JSのスニペット
+    "akamud.vscode-javascript-snippet-pack",
+    //prettier
+    "esbenp.prettier-vscode",
+    //
+    "octref.vetur",
+    //選択したコンポーネントやファイル名について、定義場所を表示してくれる
+    "dariofuzinato.vue-peek",
+    //ドキュメントの参照をvscodeからできる
+    "titiaiev.vue-docs"
+  ]
+}

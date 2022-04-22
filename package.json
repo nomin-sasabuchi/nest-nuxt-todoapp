@@ -1,0 +1,30 @@
+{
+	"name": "nest-nuxt-todoapp",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"all:install": "yarn install && yarn --cwd nest install && yarn --cwd nuxt install",
+		"all:dev": "run-p dev:*",
+		"dev:web": "yarn --cwd dev",
+		"dev:server": "yarn --cwd server"
+	},
+	"turbo": {
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": [
+          "^build"
+        ]
+      }
+    }
+  },
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "nomin sasabuchi <nomin.sasabuchi@karabiner.tech>",
+	"license": "MIT",
+	"devDependencies": {
+		"turbo": "^1.1.10"
+	}
+}
